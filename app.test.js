@@ -31,3 +31,39 @@ describe('GET /todos', () => {
     expect(Array.isArray(response.body)).toBe(true);
   });
 });
+
+describe('POST /todos', () => {
+  beforeEach(() => {
+    clearTodos();
+  });
+
+  it('should create a todo and return 201 status', async () => {
+    const response = await request(app)
+      .post('/todos')
+      .send({ text: 'Buy milk' });
+
+    expect(response.status).toBe(201);
+    expect(response.body).toHaveProperty('id');
+    expect(response.body.text).toBe('Buy milk');
+    expect(response.body.completed).toBe(false);
+  });
+
+  it('should return 400 if text field is missing', async () => {
+    const response = await request(app)
+      .post('/todos')
+      .send({});
+
+    expect(response.status).toBe(400);
+    expect(response.body.error).toBe('text field is required');
+  });
+
+  it('should add todo to the store', async () => {
+    await request(app)
+      .post('/todos')
+      .send({ text: 'Test todo' });
+
+    const getResponse = await request(app).get('/todos');
+    expect(getResponse.body).toHaveLength(1);
+    expect(getResponse.body[0].text).toBe('Test todo');
+  });
+});
