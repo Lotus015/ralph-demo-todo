@@ -16,3 +16,13 @@ Learnings:
 - Auto-incrementing id pattern works well for simple use cases
 - All acceptance criteria met: todos.js exports empty array and helper functions, addTodo adds todo with id/text/completed, getTodos returns all todos
 - Test results: 5 passed, 5 total (4 new tests for todos.js + 1 existing app test)
+
+=== Iteration 3 - S3 - 2026-01-18 ===
+Status: COMPLETE
+Learnings:
+- Integrated todos.js data store with Express app by importing getTodos function
+- GET /todos endpoint simply returns the result of getTodos() as JSON
+- Added 3 new tests for GET /todos: status code check, empty array initial state, JSON array format verification
+- Reused clearTodos() pattern in app.test.js for test isolation
+- All acceptance criteria met: GET /todos returns JSON array, returns empty array initially, returns 200 status code
+- Test results: 8 passed, 8 total (3 new tests for GET /todos + 5 existing)
