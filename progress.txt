@@ -1,0 +1,8 @@
+=== Iteration 1 - S1 - 2026-01-18 ===
+Status: COMPLETE
+Learnings:
+- Express app exports module for testing while only starting server when run directly (require.main === module pattern)
+- Supertest works well with exported Express app for integration testing
+- Jest runs smoothly with default configuration for this simple setup
+- All acceptance criteria met: package.json with deps, .gitignore with node_modules, app on port 3000, GET / returns 200 with "Todo API"
+- Test results: 1 passed, 1 total
