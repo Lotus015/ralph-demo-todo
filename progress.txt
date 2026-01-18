@@ -26,3 +26,14 @@ Learnings:
 - Reused clearTodos() pattern in app.test.js for test isolation
 - All acceptance criteria met: GET /todos returns JSON array, returns empty array initially, returns 200 status code
 - Test results: 8 passed, 8 total (3 new tests for GET /todos + 5 existing)
+
+=== Iteration 4 - S4 - 2026-01-18 ===
+Status: COMPLETE
+Learnings:
+- Added express.json() middleware to parse JSON request bodies
+- POST /todos endpoint uses addTodo from todos.js to create and return new todo
+- Validation for required text field returns 400 with error message if missing
+- Returns 201 status code for successful creation
+- Added 3 new tests: creation with 201, missing text returns 400, todo appears in store
+- All acceptance criteria met: accepts JSON body, auto-generates id, returns 201, validates text required
+- Test results: 11 passed, 11 total (3 new tests for POST /todos + 8 existing)
