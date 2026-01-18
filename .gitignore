@@ -1,0 +1,6 @@
+# Ralph Loop artifacts
+.ralph-state
+.ralph-iteration-*.log
+
+# Dependencies
+node_modules

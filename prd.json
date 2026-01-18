@@ -1,0 +1,93 @@
+{
+  "project": "Simple Todo REST API",
+  "branchName": "main",
+  "description": "Node.js Express API for managing todos with automated tests",
+  "userStories": [
+    {
+      "id": "S1",
+      "priority": 1,
+      "title": "Project Setup",
+      "description": "Initialize Node.js project with Express and testing framework",
+      "acceptance": [
+        "package.json exists with express, jest, and supertest",
+        ".gitignore includes node_modules",
+        "Basic Express app starts on port 3000",
+        "GET / returns status 200 with message \"Todo API\""
+      ],
+      "tests": [
+        "npm test"
+      ],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S2",
+      "priority": 2,
+      "title": "In-Memory Data Store",
+      "description": "Create simple in-memory array to store todos",
+      "acceptance": [
+        "todos.js file exports empty array and helper functions",
+        "addTodo(text) function adds todo with id, text, completed",
+        "getTodos() returns all todos",
+        "Simple test verifies add and get functions work"
+      ],
+      "tests": [
+        "npm test"
+      ],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S3",
+      "priority": 3,
+      "title": "GET /todos Endpoint",
+      "description": "Implement endpoint to retrieve all todos",
+      "acceptance": [
+        "GET /todos returns JSON array of todos",
+        "Returns empty array initially",
+        "Returns 200 status code",
+        "Test verifies endpoint returns correct format"
+      ],
+      "tests": [
+        "npm test"
+      ],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S4",
+      "priority": 4,
+      "title": "POST /todos Endpoint",
+      "description": "Implement endpoint to create new todo",
+      "acceptance": [
+        "POST /todos accepts JSON body with text field",
+        "Creates todo with auto-generated id",
+        "Returns created todo with 201 status",
+        "Validates text field is required (400 if missing)",
+        "Test verifies todo creation works"
+      ],
+      "tests": [
+        "npm test"
+      ],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S5",
+      "priority": 5,
+      "title": "DELETE /todos/:id Endpoint",
+      "description": "Implement endpoint to delete todo by id",
+      "acceptance": [
+        "DELETE /todos/:id removes todo from array",
+        "Returns 204 on success",
+        "Returns 404 if todo not found",
+        "Test verifies deletion works"
+      ],
+      "tests": [
+        "npm test"
+      ],
+      "passes": false,
+      "completedAt": null
+    }
+  ]
+}
