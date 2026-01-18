@@ -67,3 +67,28 @@ describe('POST /todos', () => {
     expect(getResponse.body[0].text).toBe('Test todo');
   });
 });
+
+describe('DELETE /todos/:id', () => {
+  beforeEach(() => {
+    clearTodos();
+  });
+
+  it('should delete a todo and return 204 status', async () => {
+    const createResponse = await request(app)
+      .post('/todos')
+      .send({ text: 'Todo to delete' });
+
+    const todoId = createResponse.body.id;
+
+    const deleteResponse = await request(app).delete(`/todos/${todoId}`);
+    expect(deleteResponse.status).toBe(204);
+
+    const getResponse = await request(app).get('/todos');
+    expect(getResponse.body).toHaveLength(0);
+  });
+
+  it('should return 404 if todo not found', async () => {
+    const response = await request(app).delete('/todos/999');
+    expect(response.status).toBe(404);
+  });
+});

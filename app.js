@@ -1,5 +1,5 @@
 const express = require('express');
-const { getTodos, addTodo } = require('./todos');
+const { getTodos, addTodo, deleteTodo } = require('./todos');
 
 const app = express();
 const PORT = 3000;
@@ -23,6 +23,17 @@ app.post('/todos', (req, res) => {
 
   const todo = addTodo(text);
   res.status(201).json(todo);
+});
+
+app.delete('/todos/:id', (req, res) => {
+  const id = parseInt(req.params.id, 10);
+  const deleted = deleteTodo(id);
+
+  if (!deleted) {
+    return res.status(404).json({ error: 'todo not found' });
+  }
+
+  res.status(204).send();
 });
 
 if (require.main === module) {
