@@ -37,3 +37,14 @@ Learnings:
 - Added 3 new tests: creation with 201, missing text returns 400, todo appears in store
 - All acceptance criteria met: accepts JSON body, auto-generates id, returns 201, validates text required
 - Test results: 11 passed, 11 total (3 new tests for POST /todos + 8 existing)
+
+=== Iteration 5 - S5 - 2026-01-18 ===
+Status: COMPLETE
+Learnings:
+- Added deleteTodo(id) function to todos.js using findIndex and splice for array manipulation
+- Returns boolean (true if deleted, false if not found) for simple control flow in endpoint
+- DELETE /todos/:id endpoint parses id from URL params using parseInt with radix 10
+- Returns 204 (No Content) on successful deletion, 404 if todo not found
+- Added 2 new tests: successful deletion returns 204 and removes from store, 404 for non-existent id
+- All acceptance criteria met: DELETE removes todo, returns 204 on success, returns 404 if not found
+- Test results: 13 passed, 13 total (2 new tests for DELETE /todos/:id + 11 existing)
