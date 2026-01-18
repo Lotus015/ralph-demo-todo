@@ -6,3 +6,13 @@ Learnings:
 - Jest runs smoothly with default configuration for this simple setup
 - All acceptance criteria met: package.json with deps, .gitignore with node_modules, app on port 3000, GET / returns 200 with "Todo API"
 - Test results: 1 passed, 1 total
+
+=== Iteration 2 - S2 - 2026-01-18 ===
+Status: COMPLETE
+Learnings:
+- Created todos.js with simple in-memory array storage pattern
+- Added clearTodos() helper for test isolation (resetting state between tests)
+- Used beforeEach() in tests to ensure clean state for each test case
+- Auto-incrementing id pattern works well for simple use cases
+- All acceptance criteria met: todos.js exports empty array and helper functions, addTodo adds todo with id/text/completed, getTodos returns all todos
+- Test results: 5 passed, 5 total (4 new tests for todos.js + 1 existing app test)
